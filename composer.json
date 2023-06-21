@@ -1,0 +1,22 @@
+{
+  "name": "arturo/app-salon",
+  "description": "MVC Project build in PHP 8, MySQL 8, Gulp, JS, SASS",
+  "type": "project",
+  "license": "GNU GPLv3",
+  "autoload": {
+    "psr-4": {
+      "MVC\\": "./includes/",
+      "Model\\": "./models/",
+      "View\\": "./views/",
+      "Controllers\\": "./controllers/"
+    }
+  },
+  "authors": [
+    {
+      "name": "Arturo Hernandez Garza",
+      "email": "arturo_hdzg@hotmail.com"
+    }
+  ],
+  "minimum-stability": "stable",
+  "require": {}
+}
