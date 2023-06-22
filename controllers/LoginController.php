@@ -2,12 +2,14 @@
 
 namespace Controllers;
 
+use MVC\Router;
+
 class LoginController
 {
   // Session Management
-  public static function login()
+  public static function login(Router $router,)
   {
-    echo 'Login Page';
+    $router->render('auth/login');
   }
 
   public static function logout()
@@ -16,9 +18,9 @@ class LoginController
   }
 
   // Password Management
-  public static function forget()
+  public static function forgot()
   {
-    echo 'Forget Page';
+    echo 'Forgot Page';
   }
 
   public static function restore()

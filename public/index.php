@@ -13,14 +13,14 @@ $router->post('/', [LoginController::class, 'login']);
 $router->get('/logout', [LoginController::class, 'logout']);
 
 // Reset Password
-$router->get('/forget', [LoginController::class, 'forget']);
-$router->post('/forget', [LoginController::class, 'forget']);
+$router->get('/forgot', [LoginController::class, 'forgot']);
+$router->post('/forgot', [LoginController::class, 'forgot']);
 $router->get('/restore', [LoginController::class, 'restore']);
 $router->post('/restore', [LoginController::class, 'restore']);
 
 // Create Account
-$router->get('/create-account', [LoginController::class, 'create']);
-$router->post('/create-account', [LoginController::class, 'create']);
+$router->get('/signup', [LoginController::class, 'create']);
+$router->post('/signup', [LoginController::class, 'create']);
 
 // Validate URL's
 $router->checkPaths();
