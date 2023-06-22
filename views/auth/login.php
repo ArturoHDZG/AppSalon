@@ -1,5 +1,5 @@
-<h1 class="page-name">Login</h1>
-<p class="page-desc">Login with your data</p>
+<h1 class="page-name">LOGIN</h1>
+<p class="page-desc">Login With Your Data</p>
 
 <form class="form" method="POST" action="/">
 
@@ -28,6 +28,6 @@
 </form>
 
 <div class="page-actions">
-  <a href="/signup">Don't you have an Account? Sign Up!</a>
+  <a href="/signup">Don't You Have an Account? Sign Up!</a>
   <a href="/forgot">Forgot Password?</a>
 </div>

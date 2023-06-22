@@ -7,9 +7,9 @@ use MVC\Router;
 class LoginController
 {
   // Session Management
-  public static function login(Router $router,)
+  public static function login(Router $router)
   {
-    $router->render('auth/login');
+    $router->render('auth/login', []);
   }
 
   public static function logout()
@@ -18,9 +18,9 @@ class LoginController
   }
 
   // Password Management
-  public static function forgot()
+  public static function forgot(Router $router)
   {
-    echo 'Forgot Page';
+    $router->render('auth/forgot', []);
   }
 
   public static function restore()
@@ -29,8 +29,8 @@ class LoginController
   }
 
   // Account Management
-  public static function create()
+  public static function create(Router $router)
   {
-    echo 'Create Account Page';
+    $router->render('auth/create', []);
   }
 }
