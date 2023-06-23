@@ -1,7 +1,9 @@
 <h1 class="page-name">SIGN UP</h1>
 <p class="page-desc">Create New Account</p>
 
-<form class="form" method="POST" action="/">
+<?php include_once __DIR__. "/../templates/alerts.php"; ?>
+
+<form class="form" method="POST" action="/signup">
 
   <div class="field">
     <label for="name">Name</label>
@@ -10,6 +12,7 @@
       name="name"
       type="text"
       placeholder="John"
+      value="<?php echo s($user->name); ?>"
     >
   </div>
 
@@ -20,6 +23,7 @@
       name="lastName"
       type="text"
       placeholder="Smith"
+      value="<?php echo s($user->lastName); ?>"
     >
   </div>
 
@@ -30,6 +34,7 @@
       name="phone"
       type="tel"
       placeholder="55-5555-5555"
+      value="<?php echo s($user->phone); ?>"
     >
   </div>
 
@@ -40,6 +45,7 @@
       name="email"
       type="email"
       placeholder="email@example.com"
+      value="<?php echo s($user->email); ?>"
     >
   </div>
 

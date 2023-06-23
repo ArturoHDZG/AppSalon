@@ -179,7 +179,7 @@ class ActiveRecord
     return $result;
   }
 
-  // Delete Entro form DB
+  // Delete Entry form DB
   public function delete()
   {
     $query = "DELETE FROM "  . static::$table . " WHERE id = " . self::$db->escape_string($this->id) . " LIMIT 1";

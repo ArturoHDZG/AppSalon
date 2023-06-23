@@ -3,6 +3,7 @@
 namespace Controllers;
 
 use MVC\Router;
+use Model\User;
 
 class LoginController
 {
@@ -31,6 +32,28 @@ class LoginController
   // Account Management
   public static function create(Router $router)
   {
-    $router->render('auth/create', []);
+    // Instances
+    $user = new User;
+
+    // Set Empty Alerts Array
+    $alerts = [];
+
+    if ($_SERVER['REQUEST_METHOD'] === 'POST') {
+      // Get User Input Data
+      $user->sync($_POST);
+
+      // Set Alerts Array
+      $alerts = $user->validateSignUp();
+
+      // Check if alert messages are empty
+      if (empty($alerts)) {
+        echo 'Validation Success';
+      }
+    }
+
+    $router->render('auth/create', [
+      'alerts' => $alerts,
+      'user' => $user
+    ]);
   }
 }
