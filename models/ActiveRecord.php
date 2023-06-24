@@ -128,6 +128,14 @@ class ActiveRecord
     return array_shift($result) ;
   }
 
+  // Find Registry by Column and Value
+  public static function where($column, $value)
+  {
+    $query = "SELECT * FROM " . static::$table  ." WHERE {$column} = '{$value}'";
+    $result = self::querySQL($query);
+    return array_shift($result) ;
+  }
+
   // Obtener Registros con cierta cantidad
   public static function get($limit)
   {
@@ -144,9 +152,9 @@ class ActiveRecord
     // Insert
     $query = " INSERT INTO " . static::$table . " ( ";
     $query .= join(', ', array_keys($attributes));
-    $query .= " ) VALUES (' ";
+    $query .= " ) VALUES ('";
     $query .= join("', '", array_values($attributes));
-    $query .= " ') ";
+    $query .= "') ";
 
     // Resultado de la consulta
     $result = self::$db->query($query);

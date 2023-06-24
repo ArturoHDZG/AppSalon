@@ -6,6 +6,7 @@
     "cssnano",
     "fileinfo",
     "filesize",
+    "mailtrap",
     "mbstring",
     "Modernizr",
     "mysqli",

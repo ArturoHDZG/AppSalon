@@ -38,8 +38,8 @@ class User extends ActiveRecord
     $this->email = $args['email'] ?? '';
     $this->password = $args['password'] ?? '';
     $this->phone = $args['phone'] ?? '';
-    $this->admin = $args['admin'] ?? null;
-    $this->confirm = $args['confirm'] ?? null;
+    $this->admin = $args['admin'] ?? '0';
+    $this->confirm = $args['confirm'] ?? '0';
     $this->token = $args['token'] ?? '';
   }
 
@@ -69,5 +69,31 @@ class User extends ActiveRecord
     }
 
     return self::$alerts;
+  }
+
+  // Check if Sign Up Email Already Exists in DB
+  public function userExists()
+  {
+    $query = "SELECT * FROM " . self::$table . " WHERE email = '" . $this->email . "' LIMIT 1";
+
+    $result = self::$db->query($query);
+
+    if ($result->num_rows) {
+      self::$alerts['error'][] = 'An Account Already Exists with this Email';
+    }
+
+    return $result;
+  }
+
+  // Protect Password
+  public function protectPassword()
+  {
+    $this->password = password_hash($this->password, PASSWORD_BCRYPT);
+  }
+
+  // Token Generation
+  public function tokenGeneration()
+  {
+    $this->token = uniqid();
   }
 }

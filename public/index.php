@@ -22,5 +22,9 @@ $router->post('/restore', [LoginController::class, 'restore']);
 $router->get('/signup', [LoginController::class, 'create']);
 $router->post('/signup', [LoginController::class, 'create']);
 
+// Validate Account
+$router->get('/validate', [LoginController::class, 'validate']);
+$router->get('/message', [LoginController::class, 'message']);
+
 // Validate URL's
 $router->checkPaths();

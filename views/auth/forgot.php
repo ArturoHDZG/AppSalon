@@ -18,6 +18,6 @@
 </form>
 
 <div class="page-actions">
-  <a href="/">Did You Already Had an Account? Login!</a>
+  <a href="/">Do You Have an Account? Log In!</a>
   <a href="/signup">Don't You Have an Account? Sign Up!</a>
 </div>
