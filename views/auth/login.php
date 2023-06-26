@@ -1,6 +1,8 @@
 <h1 class="page-name">LOGIN</h1>
 <p class="page-desc">Login With Your Data</p>
 
+<?php include_once __DIR__. "/../templates/alerts.php"; ?>
+
 <form class="form" method="POST" action="/">
 
   <div class="field">

@@ -1,6 +1,8 @@
 <h1 class="page-name">FORGOT PASSWORD</h1>
 <p class="page-desc">Enter Your Email</p>
 
+<?php include_once __DIR__. "/../templates/alerts.php"; ?>
+
 <form class="form" method="POST" action="/forgot">
 
   <div class="field">

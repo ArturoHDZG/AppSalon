@@ -71,6 +71,41 @@ class User extends ActiveRecord
     return self::$alerts;
   }
 
+  // Login Validation
+  public function loginValidate()
+  {
+    if (!$this->email) {
+      self::$alerts['error'][] = 'Please enter a Email';
+    }
+
+    if (!$this->password) {
+      self::$alerts['error'][] = 'Please enter a Password';
+    }
+
+    return self::$alerts;
+  }
+
+  // Email Validation for "Forgot Password" Path
+  public function validateEmail()
+  {
+    if (!$this->email) {
+      self::$alerts['error'][] = 'Please enter a Email';
+    }
+
+    return self::$alerts;
+  }
+
+  public function validatePassword()
+  {
+    if (!$this->password) {
+      self::$alerts['error'][] = 'Please enter a Password';
+    } elseif (strlen($this->password) < 6) {
+      self::$alerts['error'][] = 'The Password must contain at least 6 characters';
+    }
+
+    return self::$alerts;
+  }
+
   // Check if Sign Up Email Already Exists in DB
   public function userExists()
   {
@@ -95,5 +130,17 @@ class User extends ActiveRecord
   public function tokenGeneration()
   {
     $this->token = uniqid();
+  }
+
+  // Log In Password and Confirmed Validation
+  public function confirmedAndPassword($password)
+  {
+    $result = password_verify($password, $this->password);
+
+    if (!$result || !$this->confirm) {
+      self::$alerts['error'][] = 'Invalid password or unconfirmed account';
+    } else {
+      return true;
+    }
   }
 }

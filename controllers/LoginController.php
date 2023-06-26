@@ -11,7 +11,44 @@ class LoginController
   // Session Management
   public static function login(Router $router)
   {
-    $router->render('auth/login', []);
+    $alerts = [];
+
+    if ($_SERVER['REQUEST_METHOD'] === 'POST') {
+      $auth = new User($_POST);
+
+      $alerts = $auth->loginValidate();
+
+      if (empty($alerts)) {
+        $user = User::where('email', $auth->email);
+
+        if ($user) {
+          if ($user->confirmedAndPassword($auth->password)) {
+            session_start();
+
+            $_SESSION['id'] = $user->id;
+            $_SESSION['name'] = $user->name . ' ' . $user->lastName;
+            $_SESSION['email'] = $user->email;
+            $_SESSION['login'] = true;
+
+            //Validate 'Admin' user
+            if ($user->admin === '1'){
+              $_SESSION['admin'] = $user->admin ?? '';
+              header("Location:/admin");
+            } else {
+              header("Location:/reservations");
+            }
+          }
+        } else {
+          User::setAlert('error', 'User not found');
+        }
+      }
+    }
+
+    $alerts = User::getAlerts();
+
+    $router->render('auth/login', [
+      'alerts' => $alerts
+    ]);
   }
 
   public static function logout()
@@ -22,12 +59,75 @@ class LoginController
   // Password Management
   public static function forgot(Router $router)
   {
-    $router->render('auth/forgot', []);
+    $alerts = [];
+
+    if ($_SERVER['REQUEST_METHOD'] === 'POST') {
+      $auth = new User($_POST);
+      $alerts = $auth->validateEmail();
+
+      if (empty($alerts)) {
+        $user = User::where('email', $auth->email);
+
+        if ($user && $user->confirm === '1') {
+          $user->tokenGeneration();
+          $user->save();
+
+          // Send Email
+          $email = new Email($user->email, $user->name, $user->token);
+          $email->sendInstructions();
+
+          // Success Message
+          User::setAlert('success', 'We sent you an email with the following instructions to restore your account');
+        } else {
+          User::setAlert('error', 'User not found or not confirmed');
+        }
+      }
+    }
+
+    $alerts = User::getAlerts();
+
+    $router->render('auth/forgot', [
+      'alerts' => $alerts
+    ]);
   }
 
-  public static function restore()
+  public static function restore(Router $router)
   {
-    echo 'Restore Page';
+    $alerts = [];
+    $error = false;
+
+    // Search for token's account
+    $token = s($_GET['token']);
+    $user = User::where('token', $token);
+
+    if (empty($user)) {
+      User::setAlert('error', 'Invalid token');
+      $error = true;
+    }
+
+    if ($_SERVER['REQUEST_METHOD'] === 'POST') {
+      $password = new User($_POST);
+      $alerts = $password->validatePassword();
+
+      if (empty($alerts)) {
+        $user->password = '';
+        $user->password = $password->password;
+        $user->protectPassword();
+        $user->token = '';
+        $result = $user->save();
+
+        if ($result) {
+          header("Location:/");
+        }
+      }
+    }
+
+    $alerts = User::getAlerts();
+
+    $router->render('auth/restore', [
+      'error' => $error,
+      'alerts' => $alerts
+    ]);
   }
 
   // Account Management
