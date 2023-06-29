@@ -4,6 +4,7 @@ require_once __DIR__ . '/../includes/autoload.php';
 
 use MVC\Router;
 use Controllers\LoginController;
+use Controllers\ReservationsController;
 
 $router = new Router();
 
@@ -25,6 +26,9 @@ $router->post('/signup', [LoginController::class, 'create']);
 // Validate Account
 $router->get('/validate', [LoginController::class, 'validate']);
 $router->get('/message', [LoginController::class, 'message']);
+
+// Reservations
+$router->get('/reservations', [ReservationsController::class, 'index']);
 
 // Validate URL's
 $router->checkPaths();
