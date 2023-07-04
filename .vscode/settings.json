@@ -29,5 +29,8 @@
       "database": "appsalon_db",
       "username": "root"
     }
+  ],
+  "cSpell.enableFiletypes": [
+    "!jsonc"
   ]
 }

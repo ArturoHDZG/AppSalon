@@ -3,6 +3,7 @@
 require_once __DIR__ . '/../includes/autoload.php';
 
 use MVC\Router;
+use Controllers\APIController;
 use Controllers\LoginController;
 use Controllers\ReservationsController;
 
@@ -29,6 +30,10 @@ $router->get('/message', [LoginController::class, 'message']);
 
 // Reservations
 $router->get('/reservations', [ReservationsController::class, 'index']);
+
+// Reservations API
+$router->get('/api/services', [APIController::class, 'index']);
+
 
 // Validate URL's
 $router->checkPaths();
