@@ -6,6 +6,7 @@
     "cssnano",
     "fileinfo",
     "filesize",
+    "jsdelivr",
     "mailtrap",
     "mbstring",
     "Modernizr",
@@ -13,6 +14,8 @@
     "openssl",
     "Padawan",
     "pgsql",
+    "Swal",
+    "sweetalert",
     "webp"
   ],
   "sqltools.connections": [

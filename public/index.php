@@ -33,6 +33,7 @@ $router->get('/reservations', [ReservationsController::class, 'index']);
 
 // Reservations API
 $router->get('/api/services', [APIController::class, 'index']);
+$router->post('/api/reservations', [APIController::class, 'save']);
 
 
 // Validate URL's

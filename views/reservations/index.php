@@ -45,11 +45,12 @@
           type="time"
         >
       </div>
+      <input type="hidden" id="id" name="id" value="<?php echo $id ?>">
 
     </form>
   </div>
 
-  <div id="step-3" class="section">
+  <div id="step-3" class="section content-summary">
     <H2>Summary</H2>
     <p class="center">Check if the following information is correct</p>
   </div>
@@ -61,4 +62,9 @@
 
 </div>
 
-<?php $script = "<script src='build/js/app.js'></script>"; ?>
+<?php
+  $script = '
+    <script src="//cdn.jsdelivr.net/npm/sweetalert2@11"></script>
+    <script src="build/js/app.js"></script>
+  ';
+?>
