@@ -1,6 +1,8 @@
 <h1 class="page-name">RESERVATIONS</h1>
 <p class="page-desc">Select services below</p>
 
+<?php include_once __DIR__ . '/../templates/bar.php'; ?>
+
 <div id="app">
 
   <nav class="tabs">

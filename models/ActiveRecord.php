@@ -136,7 +136,14 @@ class ActiveRecord
     return array_shift($result) ;
   }
 
-  // Obtener Registros con cierta cantidad
+  // Build Custom SQL Query
+  public static function customSQL($query)
+  {
+    $result = self::querySQL($query);
+    return $result;
+  }
+
+  // Get Limited Registry
   public static function get($limit)
   {
     $query = "SELECT * FROM " . static::$table . " LIMIT {$limit}";
@@ -156,7 +163,7 @@ class ActiveRecord
     $query .= join("', '", array_values($attributes));
     $query .= "') ";
 
-    // Resultado de la consulta
+    // Query Result
     $result = self::$db->query($query);
 
     return [
@@ -170,7 +177,7 @@ class ActiveRecord
   {
     $attributes = $this->sanitizeAttributes();
 
-    // Iterar para ir agregando cada campo de la BD
+    // Iterate Through Attributes
     $values = [];
     foreach($attributes as $key => $value) {
         $values[] = "{$key}='{$value}'";

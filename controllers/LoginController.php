@@ -53,7 +53,8 @@ class LoginController
 
   public static function logout()
   {
-    echo 'Logout Page';
+    $_SESSION = [];
+    header("Location:/");
   }
 
   // Password Management

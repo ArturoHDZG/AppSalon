@@ -38,6 +38,10 @@
       <div class="image"></div>
       <div class="app">
         <?php echo $content; ?>
+        <div class="copyright">
+          <p>AppSalon <?php echo date('Y'); ?>&copy;</p>
+          <p>Designed by Arturo Hernández Garza</p>
+        </div>
       </div>
     </div>
 
