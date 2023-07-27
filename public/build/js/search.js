@@ -1,0 +1,1 @@
+"use strict";function searchByDate(){document.querySelector("#date").addEventListener("input",(function(t){const e=t.target.value;window.location="?date="+e}))}function startApp(){searchByDate()}document.addEventListener("DOMContentLoaded",(function(){startApp()}));

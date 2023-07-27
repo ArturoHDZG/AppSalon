@@ -4,11 +4,13 @@
   "description": "Learning Project",
   "main": "index.js",
   "scripts": {
-    "dev": "gulp"
+    "dev": "gulp",
+    "build": "gulp build"
   },
   "author": "",
   "license": "ISC",
   "devDependencies": {
+    "@prettier/plugin-php": "^0.19.6",
     "browser-sync": "^2.26.13",
     "cssnano": "^6.0.1",
     "gulp": "^4.0.2",

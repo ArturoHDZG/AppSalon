@@ -128,7 +128,22 @@ class ActiveRecord
     return array_shift($result) ;
   }
 
-  // Obtener Registros con cierta cantidad
+  // Find Registry by Column and Value
+  public static function where($column, $value)
+  {
+    $query = "SELECT * FROM " . static::$table  ." WHERE {$column} = '{$value}'";
+    $result = self::querySQL($query);
+    return array_shift($result) ;
+  }
+
+  // Build Custom SQL Query
+  public static function customSQL($query)
+  {
+    $result = self::querySQL($query);
+    return $result;
+  }
+
+  // Get Limited Registry
   public static function get($limit)
   {
     $query = "SELECT * FROM " . static::$table . " LIMIT {$limit}";
@@ -144,15 +159,15 @@ class ActiveRecord
     // Insert
     $query = " INSERT INTO " . static::$table . " ( ";
     $query .= join(', ', array_keys($attributes));
-    $query .= " ) VALUES (' ";
+    $query .= " ) VALUES ('";
     $query .= join("', '", array_values($attributes));
-    $query .= " ') ";
+    $query .= "') ";
 
-    // Resultado de la consulta
+    // Query Result
     $result = self::$db->query($query);
 
     return [
-      'resultado' =>  $result,
+      'result' =>  $result,
       'id' => self::$db->insert_id
     ];
   }
@@ -162,7 +177,7 @@ class ActiveRecord
   {
     $attributes = $this->sanitizeAttributes();
 
-    // Iterar para ir agregando cada campo de la BD
+    // Iterate Through Attributes
     $values = [];
     foreach($attributes as $key => $value) {
         $values[] = "{$key}='{$value}'";
@@ -179,7 +194,7 @@ class ActiveRecord
     return $result;
   }
 
-  // Delete Entro form DB
+  // Delete Entry form DB
   public function delete()
   {
     $query = "DELETE FROM "  . static::$table . " WHERE id = " . self::$db->escape_string($this->id) . " LIMIT 1";

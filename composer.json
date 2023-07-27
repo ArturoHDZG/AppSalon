@@ -8,6 +8,7 @@
       "MVC\\": "./includes/",
       "Model\\": "./models/",
       "View\\": "./views/",
+      "Classes\\": "./classes/",
       "Controllers\\": "./controllers/"
     }
   },
@@ -18,5 +19,8 @@
     }
   ],
   "minimum-stability": "stable",
-  "require": {}
+  "require": {
+    "phpmailer/phpmailer": "^6.8",
+    "vlucas/phpdotenv": "^5.5"
+  }
 }

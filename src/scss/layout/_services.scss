@@ -1,0 +1,40 @@
+@use 'base/variables' as v;
+@use 'base/mixins' as m;
+
+.list-services {
+  display: grid;
+  cursor: pointer;
+  gap: 2rem;
+
+  @include m.tablet {
+    @include m.grid(2, 2rem);
+  }
+
+  .service {
+    background-color: v.$white;
+    border-radius: 1rem;
+    padding: 3rem;
+    text-align: center;
+    transition-duration: 300ms;
+    transition-property: transform;
+
+    &.selected {
+      background-color: v.$blue;
+      p { color: v.$white; }
+    }
+
+    &:hover { transform: scale(1.1); }
+
+    p {
+      color: v.$black;
+      margin: 0 0 calc(v.$gap / 4) 0;
+    }
+
+    .service-price {
+      color: v.$blue;
+      font-size: 3rem;
+      font-weight: bold;
+      margin: 0;
+    }
+  }
+}

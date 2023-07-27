@@ -1,9 +1,6 @@
 # Created by https://www.toptal.com/developers/gitignore/api/node,composer,windows,sass
 # Edit at https://www.toptal.com/developers/gitignore?templates=node,composer,windows,sass
 
-### Personal Source Files ###
-src/
-
 ### Composer ###
 composer.phar
 /vendor/

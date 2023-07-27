@@ -20,15 +20,9 @@ class Router
   // Paths Management
   public function checkPaths()
   {
-    // Protect Paths
     session_start();
 
-    // Protected Paths Array
-    // $rutas_protegidas = ['/admin', '/propiedades/crear', '/propiedades/actualizar', '/propiedades/eliminar', '/vendedores/crear', '/vendedores/actualizar', '/vendedores/eliminar'];
-
-    // $auth = $_SESSION['login'] ?? null;
-
-    $currentUrl = $_SERVER['PATH_INFO'] ?? '/';
+    $currentUrl = strtok($_SERVER['REQUEST_URI'], '?') ?? '/';
     $method = $_SERVER['REQUEST_METHOD'];
 
     if ($method === 'GET') {
@@ -54,8 +48,8 @@ class Router
 
     ob_start();
 
-    include_once __DIR__ . "/views/$view.php";
+    include_once __DIR__ . "/../views/$view.php";
     $content = ob_get_clean();
-    include_once __DIR__ . '/views/layout.php';
+    include_once __DIR__ . '/../views/layout.php';
   }
 }
