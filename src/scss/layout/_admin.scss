@@ -1,0 +1,33 @@
+@use 'base/variables' as v;
+
+.reservations {
+  list-style: none;
+  padding: 0;
+
+  li {
+    border-top: .1rem solid v.$white;
+    padding: 1rem;
+
+    p {
+      color: v.$blue;
+      font-weight: v.$bold;
+    }
+
+    span, .services {
+      color: v.$white;
+      font-weight: v.$regular;
+    }
+  }
+}
+
+.services {
+  @extend .reservations;
+
+  .page-actions {
+    margin: 0;
+  }
+
+  .button, .button-delete {
+    margin: 0;
+  }
+}

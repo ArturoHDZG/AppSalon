@@ -1,0 +1,29 @@
+@use 'base/variables' as v;
+@use 'base/mixins' as m;
+
+.form {
+  margin-top: 3rem;
+  width: 100%;
+}
+
+.field {
+  display: flex;
+  align-items: center;
+  margin-bottom: 2rem;
+
+  label {
+    flex: 0 0 10rem;
+  }
+
+  input {
+    flex: 1;
+    border: none;
+    border-radius: 1rem;
+    padding: calc(v.$gap / 4);
+
+    &:disabled {
+      background-color: darken(v.$white, 15%);
+      cursor: not-allowed;
+    }
+  }
+}

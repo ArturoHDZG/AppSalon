@@ -22,11 +22,11 @@ class Email
   {
     $mail = new PHPMailer();
     $mail->isSMTP();
-    $mail->Host = 'sandbox.smtp.mailtrap.io';
+    $mail->Host = $_ENV['EMAIL_HOST'];
     $mail->SMTPAuth = true;
-    $mail->Port = 2525;
-    $mail->Username = 'a99199ddfd601d';
-    $mail->Password = 'adbf99ec0cfd15';
+    $mail->Port = $_ENV['EMAIL_PORT'];
+    $mail->Username = $_ENV['EMAIL_USER'];
+    $mail->Password = $_ENV['EMAIL_PASS'];
 
     $mail->setFrom('accounts@appsalon.com');
     $mail->addAddress('admin@appsalon.com', 'AppSalon.com');
@@ -40,7 +40,7 @@ class Email
     $content .= "<p>Confirm your email address by clicking the following link</p>";
     $content .= "<p>to activate your Account:</p>";
     $content .= "<p>Follow next link:
-     <a href='http://localhost:3000/validate?token=" . $this->token . "'>Confirm Account</a></p>";
+     <a href='" . $_ENV['APP_URL'] . "/validate?token=" . $this->token . "'>Confirm Account</a></p>";
      $content .= "<p>If you did not request registration for this account, please ignore this message.</p>";
 
     $mail->Body = $content;
@@ -51,11 +51,11 @@ class Email
   {
     $mail = new PHPMailer();
     $mail->isSMTP();
-    $mail->Host = 'sandbox.smtp.mailtrap.io';
+    $mail->Host = $_ENV['EMAIL_HOST'];
     $mail->SMTPAuth = true;
-    $mail->Port = 2525;
-    $mail->Username = 'a99199ddfd601d';
-    $mail->Password = 'adbf99ec0cfd15';
+    $mail->Port = $_ENV['EMAIL_PORT'];
+    $mail->Username = $_ENV['EMAIL_USER'];
+    $mail->Password = $_ENV['EMAIL_PASS'];
 
     $mail->setFrom('accounts@appsalon.com');
     $mail->addAddress('admin@appsalon.com', 'AppSalon.com');
@@ -68,7 +68,7 @@ class Email
     $content .= "<p><strong>Hola " . $this->name . "</strong></p>";
     $content .= "<p>Restore your password by clicking the following link</p>";
     $content .= "<p>Follow next link:
-     <a href='http://localhost:3000/restore?token=" . $this->token . "'>Restore Password</a></p>";
+     <a href='" . $_ENV['APP_URL'] . "/restore?token=" . $this->token . "'>Restore Password</a></p>";
      $content .= "<p>If you did not request this action, please ignore this message.</p>";
 
     $mail->Body = $content;

@@ -20,7 +20,7 @@ This is the code repository for the "AppSalon" project created by ArturoHDZG.
 
 ## Recent Updates
 
-- Start project in MVC architecture
+- Project completed successfully, launched version 1.0.0
 
 ## Installation Guide
 
