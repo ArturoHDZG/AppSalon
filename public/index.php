@@ -6,6 +6,7 @@ use MVC\Router;
 use Controllers\APIController;
 use Controllers\AdminController;
 use Controllers\LoginController;
+use Controllers\ServiceController;
 use Controllers\ReservationsController;
 
 $router = new Router();
@@ -38,7 +39,15 @@ $router->get('/admin', [AdminController::class, 'index']);
 // Reservations API
 $router->get('/api/services', [APIController::class, 'index']);
 $router->post('/api/reservations', [APIController::class, 'save']);
+$router->post('/api/delete', [APIController::class, 'delete']);
 
+// Services CRUD
+$router->get('/services', [ServiceController::class, 'index']);
+$router->get('/services/create', [ServiceController::class, 'create']);
+$router->get('/services/update', [ServiceController::class, 'update']);
+$router->post('/services/create', [ServiceController::class, 'create']);
+$router->post('/services/update', [ServiceController::class, 'update']);
+$router->post('/services/delete', [ServiceController::class, 'delete']);
 
 // Validate URL's
 $router->checkPaths();

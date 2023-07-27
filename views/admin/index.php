@@ -11,10 +11,17 @@
         id="date"
         type="date"
         name="date"
+        value="<?php echo $date; ?>"
       >
     </div>
   </form>
 </div>
+
+<?php
+  if (count($reservations) === 0) {
+    echo '<h3>No reservation found in this date</h3>';
+  }
+?>
 
 <div class="admin-reservations">
   <ul class="reservations">
@@ -42,8 +49,16 @@
         if (isLast($current, $next)) :
       ?>
         <p class="total">Total: <span>USD$<?php echo $total; ?></span></p>
+        <form action="/api/delete" method="POST">
+          <input type="hidden" name="id" value="<?php echo $reservation->id; ?>">
+          <input class="button-delete" type="submit" value="Delete">
+        </form>
       <?php endif; ?>
     <?php endforeach; ?>
         </li>
   </ul>
 </div>
+
+<?php
+  $script = '<script src="build/js/search.js"></script>';
+?>

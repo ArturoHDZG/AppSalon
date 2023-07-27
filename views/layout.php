@@ -28,7 +28,7 @@
     <link rel="manifest" href="/favicon/site.webmanifest">
     <link rel="mask-icon" href="/favicon/safari-pinned-tab.svg" color="#5bbad5">
     <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;700;900&display=swap" rel="stylesheet">
-    <link rel="stylesheet" href="build/css/app.css">
+    <link rel="stylesheet" href="/build/css/app.css">
     <title>AppSalon</title>
   </head>
 

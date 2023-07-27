@@ -13,6 +13,7 @@ function s($html) : string {
   return $s;
 }
 
+// Iterate Services
 function isLast(string $current, string $next) : bool {
   if ($current !== $next) {
     return true;
@@ -24,6 +25,13 @@ function isLast(string $current, string $next) : bool {
 // Login checker
 function isAuth() : void {
   if (!isset($_SESSION['login'])) {
+    header("Location:/");
+  }
+}
+
+// Admin checker
+function isAdmin() : void {
+  if (!isset($_SESSION['admin'])) {
     header("Location:/");
   }
 }

@@ -18,4 +18,19 @@ class Service extends ActiveRecord
     $this->name = $args['name'] ?? '';
     $this->price = $args['price'] ?? '';
   }
+
+  public function validate()
+  {
+    if(!$this->name) {
+      self::$alerts['error'][] = 'Please provide a Name';
+    }
+
+    if(!$this->price) {
+      self::$alerts['error'][] = 'Please provide a Price';
+    } elseif(!is_numeric($this->price)) {
+      self::$alerts['error'][] = 'Only Numeric Values are Allowed';
+    }
+
+    return self::$alerts;
+  }
 }
