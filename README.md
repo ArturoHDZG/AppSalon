@@ -1,8 +1,8 @@
 # AppSalon
 
-![AppSalon](https://github.com/ArturoHDZG/AppSalon/assets/110303654/b7838017-74a2-4084-ac6b-728ad8dca397)
+![AppSalon](https://github.com/ArturoHDZG/AppSalon/assets/110303654/8259ef9e-fc1f-4e11-8e90-34731b5d2948)
 
-## Visit site [here](https://)
+## Visit site [here](https://appsalon.ticocasas.domcloud.io)
 
 This is the code repository for the "AppSalon" project created by ArturoHDZG.
 
