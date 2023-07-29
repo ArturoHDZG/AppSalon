@@ -11,11 +11,11 @@
     <meta name="twitter:creator" content="@arturo_hdzg">
     <meta name="twitter:title" content="AppSalon">
     <meta name="twitter:description" content="Barbershop App Demo Website">
-    <meta name="twitter:image" content="https://Preview.jpg"> <!-- TODO -->
+    <meta name="twitter:image" content="https://appsalon.ticocasas.domcloud.io/AppSalon-Preview.jpg">
     <meta property="og:title" content="AppSalon">
     <meta property="og:description" content="Barbershop App Demo Website">
-    <meta property="og:image" content="https://Preview.jpg"> <!-- TODO -->
-    <meta property="og:url" content="https://"> <!-- TODO -->
+    <meta property="og:image" content="https://appsalon.ticocasas.domcloud.io/AppSalon-Preview.jpg">
+    <meta property="og:url" content="https://appsalon.ticocasas.domcloud.io">
     <meta property="og:type" content="website">
     <meta name="keywords" content="Barbershop App Demo Website">
     <meta name="msapplication-TileColor" content="#2d89ef">
