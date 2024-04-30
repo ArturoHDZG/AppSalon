@@ -2,7 +2,7 @@
 
 ![AppSalon](https://github.com/ArturoHDZG/AppSalon/assets/110303654/8259ef9e-fc1f-4e11-8e90-34731b5d2948)
 
-## Visit site [here](https://appsalon.ticocasas.domcloud.io)
+## Visit site [here](https://appsalon.ticocasas.domcloud.dev)
 
 This is the code repository for the "AppSalon" project created by ArturoHDZG.
 
